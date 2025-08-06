@@ -40,9 +40,16 @@ export async function POST(request: NextRequest) {
       async start(controller) {
         try {
           const audioStream = await elevenlabs.textToSpeech.stream(voice_id, requestOptions);
+          const reader = audioStream.getReader();
           
-          for await (const chunk of audioStream) {
-            controller.enqueue(chunk);
+          try {
+            while (true) {
+              const { done, value } = await reader.read();
+              if (done) break;
+              controller.enqueue(value);
+            }
+          } finally {
+            reader.releaseLock();
           }
           
           controller.close();

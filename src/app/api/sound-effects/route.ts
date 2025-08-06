@@ -28,8 +28,16 @@ export async function POST(request: NextRequest) {
     });
 
     const chunks = [];
-    for await (const chunk of audioStream) {
-      chunks.push(chunk);
+    const reader = audioStream.getReader();
+    
+    try {
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        chunks.push(value);
+      }
+    } finally {
+      reader.releaseLock();
     }
 
     const audioBuffer = Buffer.concat(chunks);
