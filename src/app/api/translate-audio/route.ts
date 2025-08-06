@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { ElevenLabsClient } from '@elevenlabs/elevenlabs-js';
 
 const elevenlabs = new ElevenLabsClient({
-  apiKey: process.env.NEXT_PUBLIC_ELEVENLABS_API_KEY,
+  apiKey: process.env.ELEVENLABS_API_KEY,
 });
 
 export async function POST(request: NextRequest) {
