@@ -388,121 +388,126 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
       <div className="absolute inset-0 bg-[url('/api/placeholder/1920/1080')] opacity-5"></div>
-      <div className="relative min-h-screen flex items-center justify-center p-4">
+      <div className="relative min-h-screen flex items-center justify-center p-3 sm:p-4 lg:p-6">
         <div className="w-full max-w-4xl">
           {/* Header */}
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-violet-500 to-purple-600 rounded-full mb-6 shadow-lg">
-              <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+          <div className="text-center mb-6 sm:mb-8 lg:mb-12">
+            <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-violet-500 to-purple-600 rounded-full mb-4 sm:mb-6 shadow-lg">
+              <svg className="w-8 h-8 sm:w-10 sm:h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.49 6-3.31 6-6.72h-1.7z"/>
               </svg>
             </div>
-            <h1 className="text-5xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent mb-4">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent mb-2 sm:mb-4">
               Voicery
             </h1>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg lg:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed px-2">
               Say anything. Sound like anyone. Speak any language. Clone your Vibe 🔉
             </p>
           </div>
 
           {/* Tabs */}
-          <div className="flex justify-center mb-8">
-            <div className="bg-white/10 backdrop-blur-xl rounded-xl border border-white/20 p-1 flex flex-wrap gap-1">
+          <div className="flex justify-center mb-6 sm:mb-8">
+            <div className="bg-white/10 backdrop-blur-xl rounded-xl border border-white/20 p-1 flex flex-wrap gap-1 w-full sm:w-auto max-w-full overflow-hidden">
               <button
                 onClick={() => setActiveTab('tts')}
-                className={'px-4 py-2 rounded-lg font-medium transition-all duration-200 text-sm ' + (
+                className={'px-2 sm:px-4 py-2 sm:py-2 rounded-lg font-medium transition-all duration-200 text-xs sm:text-sm flex-1 sm:flex-none min-w-0 ' + (
                   activeTab === 'tts'
                     ? 'bg-violet-600 text-white shadow-lg'
                     : 'text-gray-300 hover:text-white hover:bg-white/5'
                 )}
               >
-                Text-to-Speech
+                <span className="sm:hidden">TTS</span>
+                <span className="hidden sm:inline">Text-to-Speech</span>
               </button>
               <button
                 onClick={() => setActiveTab('clone')}
-                className={'px-4 py-2 rounded-lg font-medium transition-all duration-200 text-sm ' + (
+                className={'px-2 sm:px-4 py-2 sm:py-2 rounded-lg font-medium transition-all duration-200 text-xs sm:text-sm flex-1 sm:flex-none min-w-0 ' + (
                   activeTab === 'clone'
                     ? 'bg-violet-600 text-white shadow-lg'
                     : 'text-gray-300 hover:text-white hover:bg-white/5'
                 )}
               >
-                Voice Cloning
+                <span className="sm:hidden">Clone</span>
+                <span className="hidden sm:inline">Voice Cloning</span>
               </button>
               <button
                 onClick={() => setActiveTab('translate')}
-                className={'px-4 py-2 rounded-lg font-medium transition-all duration-200 text-sm ' + (
+                className={'px-2 sm:px-4 py-2 sm:py-2 rounded-lg font-medium transition-all duration-200 text-xs sm:text-sm flex-1 sm:flex-none min-w-0 ' + (
                   activeTab === 'translate'
                     ? 'bg-violet-600 text-white shadow-lg'
                     : 'text-gray-300 hover:text-white hover:bg-white/5'
                 )}
               >
-                Audio Translation
+                <span className="sm:hidden">Translate</span>
+                <span className="hidden sm:inline">Audio Translation</span>
               </button>
               <button
                 onClick={() => setActiveTab('voice-gen')}
-                className={'px-4 py-2 rounded-lg font-medium transition-all duration-200 text-sm ' + (
+                className={'px-2 sm:px-4 py-2 sm:py-2 rounded-lg font-medium transition-all duration-200 text-xs sm:text-sm flex-1 sm:flex-none min-w-0 ' + (
                   activeTab === 'voice-gen'
                     ? 'bg-violet-600 text-white shadow-lg'
                     : 'text-gray-300 hover:text-white hover:bg-white/5'
                 )}
               >
-                Voice Generation
+                <span className="sm:hidden">Generate</span>
+                <span className="hidden sm:inline">Voice Generation</span>
               </button>
               <button
                 onClick={() => setActiveTab('sound-fx')}
-                className={'px-4 py-2 rounded-lg font-medium transition-all duration-200 text-sm ' + (
+                className={'px-2 sm:px-4 py-2 sm:py-2 rounded-lg font-medium transition-all duration-200 text-xs sm:text-sm flex-1 sm:flex-none min-w-0 ' + (
                   activeTab === 'sound-fx'
                     ? 'bg-violet-600 text-white shadow-lg'
                     : 'text-gray-300 hover:text-white hover:bg-white/5'
                 )}
               >
-                Sound Effects
+                <span className="sm:hidden">SFX</span>
+                <span className="hidden sm:inline">Sound Effects</span>
               </button>
             </div>
           </div>
 
           {/* Notification */}
           {showNotification && (
-            <div className="fixed top-6 right-6 bg-emerald-500 text-white px-6 py-3 rounded-lg shadow-lg border border-emerald-400 animate-in slide-in-from-top-2 duration-300 z-50">
+            <div className="fixed top-4 left-4 right-4 sm:top-6 sm:right-6 sm:left-auto bg-emerald-500 text-white px-4 py-3 sm:px-6 rounded-lg shadow-lg border border-emerald-400 animate-in slide-in-from-top-2 duration-300 z-50">
               <div className="flex items-center gap-2">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
                 </svg>
-                <span className="font-medium">Voice synthesis complete!</span>
+                <span className="font-medium text-sm sm:text-base">Voice synthesis complete!</span>
               </div>
             </div>
           )}
 
           {/* Main Content */}
-          <div className="bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20 shadow-2xl p-8">
+          <div className="bg-white/10 backdrop-blur-xl rounded-xl sm:rounded-2xl border border-white/20 shadow-2xl p-4 sm:p-6 lg:p-8">
             {activeTab === 'tts' && (
               <div>
-                <div className="mb-8">
-                <label className="block text-white font-semibold mb-3 text-lg">
+                <div className="mb-6 sm:mb-8">
+                <label className="block text-white font-semibold mb-2 sm:mb-3 text-base sm:text-lg">
                   Your Text
                 </label>
                 <div className="relative">
                   <textarea
                     value={text}
                     onChange={(e) => setText(e.target.value)}
-                    className="w-full p-6 bg-white/5 border border-white/20 rounded-xl text-white placeholder-gray-400 resize-none focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent backdrop-blur-sm transition-all duration-200"
+                    className="w-full p-4 sm:p-6 bg-white/5 border border-white/20 rounded-xl text-white placeholder-gray-400 resize-none focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent backdrop-blur-sm transition-all duration-200 text-sm sm:text-base"
                     rows={4}
                     placeholder="Enter the text you want to convert to speech..."
                   />
-                  <div className="absolute bottom-3 right-3 text-sm text-gray-400">
+                  <div className="absolute bottom-3 right-3 text-xs sm:text-sm text-gray-400">
                     {text.length} characters
                   </div>
                 </div>
               </div>
 
               {/* Voice Filters */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 mb-6">
                 <div>
-                  <label className="block text-white font-semibold mb-2">Category</label>
+                  <label className="block text-white font-semibold mb-2 text-sm sm:text-base">Category</label>
                   <select
                     value={voiceCategory}
                     onChange={(e) => setVoiceCategory(e.target.value)}
-                    className="w-full p-3 bg-white/5 border border-white/20 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-violet-500 backdrop-blur-sm"
+                    className="w-full p-3 sm:p-3 bg-white/5 border border-white/20 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-violet-500 backdrop-blur-sm text-sm sm:text-base appearance-none cursor-pointer"
                   >
                     <option value="all">All Categories</option>
                     <option value="premade">Premade</option>
@@ -511,11 +516,11 @@ export default function Home() {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-white font-semibold mb-2">Language</label>
+                  <label className="block text-white font-semibold mb-2 text-sm sm:text-base">Language</label>
                   <select
                     value={voiceLanguage}
                     onChange={(e) => setVoiceLanguage(e.target.value)}
-                    className="w-full p-3 bg-white/5 border border-white/20 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-violet-500 backdrop-blur-sm"
+                    className="w-full p-3 sm:p-3 bg-white/5 border border-white/20 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-violet-500 backdrop-blur-sm text-sm sm:text-base appearance-none cursor-pointer"
                   >
                     <option value="all">All Languages</option>
                     <option value="en">English</option>
@@ -525,12 +530,12 @@ export default function Home() {
                     <option value="it">Italian</option>
                   </select>
                 </div>
-                <div>
-                  <label className="block text-white font-semibold mb-2">Gender</label>
+                <div className="sm:col-span-2 lg:col-span-1">
+                  <label className="block text-white font-semibold mb-2 text-sm sm:text-base">Gender</label>
                   <select
                     value={voiceGender}
                     onChange={(e) => setVoiceGender(e.target.value)}
-                    className="w-full p-3 bg-white/5 border border-white/20 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-violet-500 backdrop-blur-sm"
+                    className="w-full p-3 sm:p-3 bg-white/5 border border-white/20 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-violet-500 backdrop-blur-sm text-sm sm:text-base appearance-none cursor-pointer"
                   >
                     <option value="all">All Genders</option>
                     <option value="male">Male</option>
@@ -540,14 +545,14 @@ export default function Home() {
               </div>
 
               {/* Voice Selection */}
-              <div className="mb-8">
-                <label className="block text-white font-semibold mb-3 text-lg">
+              <div className="mb-6 sm:mb-8">
+                <label className="block text-white font-semibold mb-2 sm:mb-3 text-base sm:text-lg">
                   Select Voice ({voices.length} available)
                 </label>
                 <select
                   value={selectedVoice}
                   onChange={(e) => setSelectedVoice(e.target.value)}
-                  className="w-full p-4 bg-white/5 border border-white/20 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-violet-500 backdrop-blur-sm"
+                  className="w-full p-3 sm:p-4 bg-white/5 border border-white/20 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-violet-500 backdrop-blur-sm text-sm sm:text-base appearance-none cursor-pointer"
                 >
                   { voices.map((voice) => (
                     <option key={voice.voiceId} value={voice.voiceId}>
@@ -558,10 +563,10 @@ export default function Home() {
               </div>
 
               {/* Voice Settings */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                <div className="space-y-4">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 mb-6 sm:mb-8">
+                <div className="space-y-4 sm:space-y-6">
                   <div>
-                    <label className="block text-white font-semibold mb-2">
+                    <label className="block text-white font-semibold mb-3 text-sm sm:text-base">
                       Stability: {stability.toFixed(2)}
                     </label>
                     <input
@@ -571,16 +576,16 @@ export default function Home() {
                       step="0.01"
                       value={stability}
                       onChange={(e) => setStability(parseFloat(e.target.value))}
-                      className="w-full h-3 bg-white/10 rounded-full appearance-none cursor-pointer slider-thumb"
+                      className="w-full h-6 sm:h-3 bg-white/10 rounded-full appearance-none cursor-pointer slider-thumb touch-manipulation"
                     />
-                    <div className="flex justify-between text-xs text-gray-400 mt-1">
+                    <div className="flex justify-between text-xs text-gray-400 mt-2">
                       <span>Variable</span>
                       <span>Stable</span>
                     </div>
                   </div>
                   
                   <div>
-                    <label className="block text-white font-semibold mb-2">
+                    <label className="block text-white font-semibold mb-3 text-sm sm:text-base">
                       Similarity Boost: {similarityBoost.toFixed(2)}
                     </label>
                     <input
@@ -590,16 +595,16 @@ export default function Home() {
                       step="0.01"
                       value={similarityBoost}
                       onChange={(e) => setSimilarityBoost(parseFloat(e.target.value))}
-                      className="w-full h-3 bg-white/10 rounded-full appearance-none cursor-pointer slider-thumb"
+                      className="w-full h-6 sm:h-3 bg-white/10 rounded-full appearance-none cursor-pointer slider-thumb touch-manipulation"
                     />
-                    <div className="flex justify-between text-xs text-gray-400 mt-1">
+                    <div className="flex justify-between text-xs text-gray-400 mt-2">
                       <span>Low</span>
                       <span>High</span>
                     </div>
                   </div>
                   
                   <div>
-                    <label className="block text-white font-semibold mb-2">
+                    <label className="block text-white font-semibold mb-3 text-sm sm:text-base">
                       Style: {style.toFixed(2)}
                     </label>
                     <input
@@ -609,18 +614,18 @@ export default function Home() {
                       step="0.01"
                       value={style}
                       onChange={(e) => setStyle(parseFloat(e.target.value))}
-                      className="w-full h-3 bg-white/10 rounded-full appearance-none cursor-pointer slider-thumb"
+                      className="w-full h-6 sm:h-3 bg-white/10 rounded-full appearance-none cursor-pointer slider-thumb touch-manipulation"
                     />
-                    <div className="flex justify-between text-xs text-gray-400 mt-1">
+                    <div className="flex justify-between text-xs text-gray-400 mt-2">
                       <span>None</span>
                       <span>Exaggerated</span>
                     </div>
                   </div>
                 </div>
                 
-                <div className="space-y-4">
+                <div className="space-y-4 sm:space-y-6">
                   <div>
-                    <label className="block text-white font-semibold mb-2">
+                    <label className="block text-white font-semibold mb-3 text-sm sm:text-base">
                       Speed: {speed.toFixed(2)}x
                     </label>
                     <input
@@ -630,20 +635,20 @@ export default function Home() {
                       step="0.01"
                       value={speed}
                       onChange={(e) => setSpeed(parseFloat(e.target.value))}
-                      className="w-full h-3 bg-white/10 rounded-full appearance-none cursor-pointer slider-thumb"
+                      className="w-full h-6 sm:h-3 bg-white/10 rounded-full appearance-none cursor-pointer slider-thumb touch-manipulation"
                     />
-                    <div className="flex justify-between text-xs text-gray-400 mt-1">
+                    <div className="flex justify-between text-xs text-gray-400 mt-2">
                       <span>Slow</span>
                       <span>Fast</span>
                     </div>
                   </div>
                   
                   <div>
-                    <label className="block text-white font-semibold mb-2">AI Model</label>
+                    <label className="block text-white font-semibold mb-2 text-sm sm:text-base">AI Model</label>
                     <select
                       value={selectedModel}
                       onChange={(e) => setSelectedModel(e.target.value)}
-                      className="w-full p-3 bg-white/5 border border-white/20 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-violet-500 backdrop-blur-sm"
+                      className="w-full p-3 bg-white/5 border border-white/20 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-violet-500 backdrop-blur-sm text-sm sm:text-base appearance-none cursor-pointer"
                     >
                       <option value="eleven_multilingual_v2">Multilingual v2 (Best Quality)</option>
                       <option value="eleven_flash_v2_5">Flash v2.5 (Ultra Fast)</option>
@@ -651,22 +656,22 @@ export default function Home() {
                     </select>
                   </div>
                   
-                  <div className="space-y-3">
-                    <label className="flex items-center text-white">
+                  <div className="space-y-3 sm:space-y-4">
+                    <label className="flex items-center text-white text-sm sm:text-base cursor-pointer">
                       <input
                         type="checkbox"
                         checked={useSpeakerBoost}
                         onChange={(e) => setUseSpeakerBoost(e.target.checked)}
-                        className="mr-2 rounded"
+                        className="mr-3 w-4 h-4 sm:w-5 sm:h-5 rounded accent-violet-600"
                       />
                       Speaker Boost
                     </label>
-                    <label className="flex items-center text-white">
+                    <label className="flex items-center text-white text-sm sm:text-base cursor-pointer">
                       <input
                         type="checkbox"
                         checked={useStreaming}
                         onChange={(e) => setUseStreaming(e.target.checked)}
-                        className="mr-2 rounded"
+                        className="mr-3 w-4 h-4 sm:w-5 sm:h-5 rounded accent-violet-600"
                       />
                       Real-time Streaming
                     </label>
@@ -675,43 +680,43 @@ export default function Home() {
               </div>
 
               {/* Action Buttons */}
-              <div className="flex gap-4 mb-8">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8">
                 <button
                   onClick={generateSpeech}
                   disabled={isGenerating || !text.trim()}
-                  className="flex-1 bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-700 hover:to-purple-700 disabled:from-gray-600 disabled:to-gray-700 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-200 flex items-center justify-center gap-3 shadow-lg disabled:cursor-not-allowed"
+                  className="flex-1 bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-700 hover:to-purple-700 disabled:from-gray-600 disabled:to-gray-700 text-white font-semibold py-3 sm:py-4 px-4 sm:px-6 rounded-xl transition-all duration-200 flex items-center justify-center gap-2 sm:gap-3 shadow-lg disabled:cursor-not-allowed text-sm sm:text-base min-h-[48px] touch-manipulation"
                 >
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.49 6-3.31 6-6.72h-1.7z"/>
                   </svg>
-                  {isGenerating ? 'Synthesizing...' : 'Generate Voice'}
+                  <span className="truncate">{isGenerating ? 'Synthesizing...' : 'Generate Voice'}</span>
                 </button>
                 
                 {audioUrl && (
                   <button
                     onClick={() => downloadAudio({ url: audioUrl }, 'speech.mp3')}
-                    className="bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-200 flex items-center justify-center gap-3 shadow-lg"
+                    className="sm:flex-shrink-0 bg-green-600 hover:bg-green-700 text-white font-semibold py-3 sm:py-4 px-4 sm:px-6 rounded-xl transition-all duration-200 flex items-center justify-center gap-2 sm:gap-3 shadow-lg text-sm sm:text-base min-h-[48px] touch-manipulation"
                   >
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                     </svg>
-                    Download MP3
+                    <span>Download MP3</span>
                   </button>
                 )}
               </div>
 
               {/* Audio Player */}
               {audioUrl && (
-                <div className="bg-black/20 backdrop-blur-sm rounded-xl p-6 border border-white/10">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center gap-3">
-                      <div className={'w-3 h-3 rounded-full ' + (isPlaying ? 'bg-green-500 animate-pulse' : 'bg-gray-500')}></div>
-                      <span className="text-white font-medium">
+                <div className="bg-black/20 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-white/10">
+                  <div className="flex items-center justify-between mb-3 sm:mb-4">
+                    <div className="flex items-center gap-2 sm:gap-3">
+                      <div className={'w-2 h-2 sm:w-3 sm:h-3 rounded-full ' + (isPlaying ? 'bg-green-500 animate-pulse' : 'bg-gray-500')}></div>
+                      <span className="text-white font-medium text-sm sm:text-base">
                         {isPlaying ? 'Playing' : 'Ready'}
                       </span>
                     </div>
                   </div>
-                  <audio controls className="w-full">
+                  <audio controls className="w-full h-8 sm:h-auto">
                     <source src={audioUrl} type="audio/mpeg"></source>
                   </audio>
                 </div>
@@ -1112,9 +1117,9 @@ export default function Home() {
           </div>
 
           {/* Footer */}
-          <div className="text-center mt-8">
-            <p className="text-gray-500 text-sm">
-              Made with <span role="img" aria-label="love" className="text-red-500">❤️</span> by <a href='https://x.com/unicodeveloper' target="_blank">unicodeveloper</a> • Powered by <a href="https://elevenlabs.io/" target="_blank"></a>ElevenLabs
+          <div className="text-center mt-6 sm:mt-8">
+            <p className="text-gray-500 text-xs sm:text-sm px-4">
+              Made with <span role="img" aria-label="love" className="text-red-500">❤️</span> by <a href='https://x.com/unicodeveloper' target="_blank" className="hover:text-gray-300 transition-colors">unicodeveloper</a> • Powered by <a href="https://elevenlabs.io/" target="_blank" className="hover:text-gray-300 transition-colors">ElevenLabs</a>
             </p>
           </div>
         </div>
