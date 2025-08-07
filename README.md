@@ -4,6 +4,8 @@
 
 Voicery is a modern web application that harnesses the power of ElevenLabs AI to provide comprehensive voice synthesis capabilities. Transform text into natural-sounding speech, clone voices, translate audio across 32+ languages, generate custom voices, and create realistic sound effects.
 
+
+
 ## ✨ Features
 
 - **🗣️ Text-to-Speech**: Convert any text to natural-sounding speech with 100+ premium voices

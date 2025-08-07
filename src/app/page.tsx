@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState('tts');
-  const [text, setText] = useState('Transform your ideas into spoken words with our advanced voice synthesis technology.');
+  const [text, setText] = useState('Speak life into your ideas. Make them come true. Give them a voice, a rhythm, and a reason to exist in the world.');
   const [selectedVoice, setSelectedVoice] = useState('Rachel');
   const [voices, setVoices] = useState([]);
   const [isGenerating, setIsGenerating] = useState(false);
@@ -1188,7 +1188,7 @@ export default function Home() {
                     onChange={(e) => setSoundEffectText(e.target.value)}
                     className="w-full p-4 bg-input border border-border rounded-xl text-foreground placeholder-muted-foreground resize-none focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all duration-200"
                     rows={3}
-                    placeholder="Describe the sound effect you want (e.g., 'Rain falling on a roof', 'Birds chirping in a forest', 'Car engine starting')..."
+                    placeholder="Describe the sound effect you want (e.g., 'A baby crying', 'Birds tweeting', 'Car engine starting')..."
                   />
                 </div>
 

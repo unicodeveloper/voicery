@@ -13,7 +13,7 @@ export async function GET(request: NextRequest) {
     const age = searchParams.get('age');
     const accent = searchParams.get('accent');
     
-    // Get all voices excluding 2 voices (Prosper & Jemine)
+    // Get all voices excluding 2 voices
     const excludedVoiceIds = ['IBbQY0e1zV7OqEnsLUfu', 'dtEyxJujRtZKf3lNtU08'];
     let result;
     
