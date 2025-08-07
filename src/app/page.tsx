@@ -70,6 +70,7 @@ export default function Home() {
       
       const voicesResponse = await fetch(`/api/voices?${params}`);
       const voicesData = await voicesResponse.json();
+
       const loadedVoices = voicesData.voices || [];
       setVoices(loadedVoices);
       

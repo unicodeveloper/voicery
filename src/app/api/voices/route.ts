@@ -13,23 +13,29 @@ export async function GET(request: NextRequest) {
     const age = searchParams.get('age');
     const accent = searchParams.get('accent');
     
-    let voices;
+    // Get all voices excluding 2 voices (Prosper & Jemine)
+    const excludedVoiceIds = ['IBbQY0e1zV7OqEnsLUfu', 'dtEyxJujRtZKf3lNtU08'];
+    let result;
     
     if (category || language || age || accent) {
       // Use search method with filters
-      voices = await elevenlabs.voices.search({
+      result = await elevenlabs.voices.search({
         category: category || undefined,
         language: language || undefined,
         age: age || undefined,
         accent: accent || undefined,
       });
+
+      result = result.voices.filter(v => !excludedVoiceIds.includes(v.voiceId));
+
     } else {
-      // Get all voices
-      voices = await elevenlabs.voices.getAll();
+      
+      let allVoices = await elevenlabs.voices.getAll();
+      result = allVoices.voices.filter(v => !excludedVoiceIds.includes(v.voiceId));
     }
     
     return NextResponse.json({
-      voices: voices.voices || [],
+      voices: result || [],
     });
   } catch (error) {
     console.error('Error fetching voices:', error);
