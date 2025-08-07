@@ -14,7 +14,7 @@ export async function GET(request: NextRequest) {
     const accent = searchParams.get('accent');
     
     // Get all voices excluding 2 voices
-    const excludedVoiceIds = ['IBbQY0e1zV7OqEnsLUfu', 'dtEyxJujRtZKf3lNtU08'];
+    const excludedVoiceIds = [process.env.VOICE_ID_ONE, process.env.VOICE_ID_TWO];
     let result;
     
     if (category || language || age || accent) {
