@@ -10,18 +10,16 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url);
     const category = searchParams.get('category');
     const language = searchParams.get('language');
-    const gender = searchParams.get('gender');
     const age = searchParams.get('age');
     const accent = searchParams.get('accent');
     
     let voices;
     
-    if (category || language || gender || age || accent) {
+    if (category || language || age || accent) {
       // Use search method with filters
       voices = await elevenlabs.voices.search({
         category: category || undefined,
         language: language || undefined,
-        gender: gender || undefined,
         age: age || undefined,
         accent: accent || undefined,
       });

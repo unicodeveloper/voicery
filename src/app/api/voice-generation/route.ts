@@ -17,15 +17,14 @@ export async function POST(request: NextRequest) {
     }
 
     // Generate voice previews from description
-    const voicePreviews = await elevenlabs.textToVoice.createPreviews({
+    const voicePreviews = await elevenlabs.textToVoice.design({
       voiceDescription: voice_description,
       text: text || "Hello, this is a preview of the generated voice.",
     });
 
     // Return preview data and generated voices
     return NextResponse.json({
-      previews: voicePreviews.previews || [],
-      generated_voice_id: voicePreviews.generated_voice_id,
+      previews: voicePreviews.previews || []
     });
 
   } catch (error) {
@@ -40,18 +39,19 @@ export async function POST(request: NextRequest) {
 // Create a finalized voice from previews
 export async function PUT(request: NextRequest) {
   try {
-    const { voice_name, voice_description, generated_voice_id } = await request.json();
+    const { voiceName, voiceDescription, generatedVoiceId } = await request.json();
 
-    if (!voice_name || !generated_voice_id) {
+    if (!voiceName || !generatedVoiceId) {
       return NextResponse.json(
         { error: 'Voice name and generated_voice_id are required' },
         { status: 400 }
       );
     }
 
-    const createdVoice = await elevenlabs.textToVoice.create(generated_voice_id, {
-      voiceName: voice_name,
-      voiceDescription: voice_description,
+    const createdVoice = await elevenlabs.textToVoice.create({
+      voiceName,
+      voiceDescription,
+      generatedVoiceId
     });
 
     return NextResponse.json({
